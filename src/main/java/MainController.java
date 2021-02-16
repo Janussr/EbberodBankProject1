@@ -19,6 +19,7 @@ public class MainController {
            choice = sc.nextInt();
            switch (choice) {
                case 1:
+
                    getBalance();
                    break;
                case 2:
@@ -29,18 +30,12 @@ public class MainController {
                    break;
                /*case 4:
                    placeHolder();
-                   break;
-               case 5:
-                   placeHolder();
-                   break;
-               case 6:
-                   placeHolder();
                    break;*/
                case 0:
-                   exit();
+               //    exit();
                    break;
                default:
-                   exit();
+                //   exit();
            }
        }
     }
