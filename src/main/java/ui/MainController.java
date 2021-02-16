@@ -1,6 +1,12 @@
+package ui;
+
+import domain.Customer;
+import domain.Transaction;
+import exceptions.InsufficientFundsException;
+import exceptions.InvalidAmountException;
+
 import java.util.List;
 import java.util.Scanner;
-import java.sql.*;
 import java.util.Date;
 
 
@@ -58,7 +64,7 @@ public class MainController {
     }
 
     //case 2
-    public int withDrawAmount() throws InsufficientFundsException{
+    public int withDrawAmount() throws InsufficientFundsException {
         int amount = 0;
         System.out.println("Enter your desired withdrawal: ");
         amount = sc.nextInt();
@@ -72,7 +78,7 @@ public class MainController {
     }
 
     //case 3
-    public int depositAmount() throws InvalidAmountException{
+    public int depositAmount() throws InvalidAmountException {
         int amount = 0;
         System.out.println("Enter your desired deposit: ");
         amount = sc.nextInt();

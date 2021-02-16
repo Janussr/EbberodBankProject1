@@ -1,3 +1,5 @@
+package domain;
+
 public class Bank {
     int bank_id;
     String name;
