@@ -10,7 +10,7 @@ public class MainController {
     private Customer customer;
 
     Scanner sc = new Scanner(System.in);
-    public void runProgram() {
+    public void runProgram() throws InsufficientFundsException, InvalidAmountException {
 
         printMainMenu();
 
@@ -49,6 +49,7 @@ public class MainController {
 
     //case 0
     public void exit() {
+        //hehe der skal selvfølgelig tilføjes noget funktionalitet til denne funktion på et tidspunkt.
         System.out.println("Exiting program...");
     }
 
@@ -62,9 +63,13 @@ public class MainController {
     }
 
     //case 2
-    public int withDrawAmount(int amount) throws InsufficientFundsException{
+    public int withDrawAmount() throws InsufficientFundsException{
+        int amount = 0;
+        System.out.println("Enter your desired withdrawal: ");
+        amount = sc.nextInt();
         if(amount <= getBalance()) {
             transactions.add(new Transaction(-amount, new Date()));
+            System.out.println(String.format("Ny balance: %d", getBalance()));
         } else {
             throw new InsufficientFundsException();
         }
@@ -72,9 +77,13 @@ public class MainController {
     }
 
     //case 3
-    public int depositAmount(int amount) throws InvalidAmountException{
+    public int depositAmount() throws InvalidAmountException{
+        int amount = 0;
+        System.out.println("Enter your desired deposit: ");
+        amount = sc.nextInt();
         if(amount > 0) {
             transactions.add(new Transaction(amount, new Date()));
+            System.out.println(String.format("Ny balance: %d", getBalance()));
         } else {
             throw new InvalidAmountException();
         }
@@ -82,9 +91,9 @@ public class MainController {
     }
 
     private void printMainMenu() {
-        System.out.println("1) PlaceHolder.");
-        System.out.println("2) PlaceHolder.");
-        System.out.println("3) PlaceHolder.");
+        System.out.println("1) View your balance.");
+        System.out.println("2) Withdraw money from your account.");
+        System.out.println("3) Deposit money to your account.");
         System.out.println("4) PlaceHolder.");
         System.out.println("5) PlaceHolder.");
         System.out.println("6) PlaceHolder.");
