@@ -14,28 +14,27 @@ public class MainController {
            choice = sc.nextInt();
            switch (choice) {
                case 1:
-                   placeHolder();
+                   //placeHolder();
                    break;
                case 2:
-                   placeHolder();
-                   break;
+//                   break;
                case 3:
-                   placeHolder();
+                //   placeHolder();
                    break;
                case 4:
-                   placeHolder();
+                //   placeHolder();
                    break;
                case 5:
-                   placeHolder();
+                //   placeHolder();
                    break;
                case 6:
-                   placeHolder();
+                //   placeHolder();
                    break;
                case 0:
-                   exit();
+               //    exit();
                    break;
                default:
-                   exit();
+                //   exit();
            }
        }
     }
