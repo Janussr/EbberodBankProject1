@@ -1,24 +1,24 @@
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 import java.util.Date;
 
 public class Transaction {
     private int transaction_id;
     private int amount;
-    private LocalDate dateOfTransaction;
+    private Date date;
 
-    public Transaction(int transaction_id, int amount, LocalDate dateOfTransaction) {
+    //OBS! transaction_ID er ikke added til constructor! men det skal den senere hen, den er bare fjernet for testing purposes.
+    public Transaction(int amount, Date date) {
         this.transaction_id = transaction_id;
         this.amount = amount;
-        this.dateOfTransaction = LocalDate.now();
+        this.date = date;
     }
 
     public int getAmount() {
         return amount;
     }
 
-    public LocalDate getDateOfTransaction() {
-        return dateOfTransaction;
+    public Date date() {
+        return date;
     }
 
 }
