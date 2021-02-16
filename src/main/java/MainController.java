@@ -7,8 +7,9 @@ public class MainController {
     Scanner sc = new Scanner(System.in);
     public void runProgram() {
 
-       int choice = 0;
+        printMainMenu();
 
+       int choice = 0;
        while (choice != 9) {
            choice = sc.nextInt();
            switch (choice) {
@@ -37,11 +38,19 @@ public class MainController {
                    exit();
            }
        }
+    }
 
-       //Functions to the related switch-case number will be added below here.
+    //Functions to the related switch-case number will be added below here.
 
 
 
-
+    private void printMainMenu() {
+        System.out.println("1) PlaceHolder.");
+        System.out.println("2) PlaceHolder.");
+        System.out.println("3) PlaceHolder.");
+        System.out.println("4) PlaceHolder.");
+        System.out.println("5) PlaceHolder.");
+        System.out.println("6) PlaceHolder.");
+        System.out.println("0) Exit.");
     }
 }
