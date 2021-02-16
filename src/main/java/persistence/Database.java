@@ -1,9 +1,11 @@
+package persistence;
+
 import java.sql.*;
 
 public class Database {
     private static final String USER = "root";
     private static final String PASS = "root";
-    private static final String URL = "jdbc:mysql://localhost:3306/ebberodbank?serverTimezone=CET&useSSL=false";
+    private static final String URL = "jdbc:mysql://localhost:3306/ebberod_bank?serverTimezone=CET&useSSL=false";
     private static Connection connection;
 
     public static void main(String[] args) {
@@ -24,14 +26,14 @@ public class Database {
             System.out.println("Fejl under etablering af forbindelse til DB");
         }
 
-        String sql = "select * from kunder";
+        String sql = "select * from customer";
 
         try (PreparedStatement ps = connection.prepareStatement(sql)){
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int idcustomer = rs.getInt("idkunder");
-                String name = rs.getString("navn");
-                String city = rs.getString("by");
+                int idcustomer = rs.getInt("customer_id");
+                String name = rs.getString("name");
+                String city = rs.getString("city");
 
 
                 System.out.println("kunde nr " + idcustomer);
