@@ -76,6 +76,7 @@ public class MainController {
     }
 
     //case 2
+    //TODO: der må ikke kunne overtrækkes.
     public int withDrawAmount() throws InsufficientFundsException {
         int amount = 0;
         System.out.println("Enter your desired withdrawal: ");
@@ -90,6 +91,7 @@ public class MainController {
     }
 
     //case 3
+    //TODO: der må ikke kunne overtrækkes.
     public int depositAmount() throws InvalidAmountException {
         int amount = 0;
         System.out.println("Enter your desired deposit: ");
@@ -102,7 +104,7 @@ public class MainController {
         }
         return getBalance();
     }
-     //case 4 -Show current customers from DB
+     //case 4 -Show current customers in DB
     private void showCustomers(){
         List<Customer> allCustomers = dbMapper.getAllCustomers();
         for (Customer customer: allCustomers ) {
