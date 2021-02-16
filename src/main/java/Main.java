@@ -1,8 +1,7 @@
-/**
- * CREATED BY Janus @ 2021-02-15 - 13:09
- **/
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello Ebberød bank");
+    public static void main(String[] args){
+    //Here we initialize the mainController and runs it.
+    MainController mc = new MainController();
+    mc.runProgram();
     }
 }
