@@ -7,6 +7,10 @@ import exceptions.InvalidAmountException;
 import persistence.Database;
 import persistence.DbMapper;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Date;
@@ -27,7 +31,7 @@ public class MainController {
 
     Scanner sc = new Scanner(System.in);
 
-    public void runProgram() throws InsufficientFundsException, InvalidAmountException {
+    public void runProgram() throws InsufficientFundsException, InvalidAmountException, SQLException {
 
         printMainMenu();
 
@@ -36,7 +40,6 @@ public class MainController {
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-
                     getBalance();
                     break;
                 case 2:
@@ -45,12 +48,17 @@ public class MainController {
                 case 3:
                     depositAmount();
                     break;
-               case 4:
-                   showCustomers();
-                   printMainMenu();
-                   break;
+                case 4:
+                    showCustomers();
+                    break;
+                case 5:
+                    checkBalance();
+                    break;
+                case 9:
+                    printMainMenu();
+                    break;
                 case 0:
-                    //    exit();
+                    exit();
                     break;
                 default:
                     //   exit();
@@ -60,10 +68,10 @@ public class MainController {
 
     //Functions to the related switch-case number will be added below here.
 
-    //case 0
+    //case 9
     public void exit() {
-        //hehe der skal selvfølgelig tilføjes noget funktionalitet til denne funktion på et tidspunkt.
         System.out.println("Exiting program...");
+        System.exit(0);
     }
 
     //case 1
@@ -104,12 +112,18 @@ public class MainController {
         }
         return getBalance();
     }
-     //case 4 -Show current customers in DB
-    private void showCustomers(){
+
+    //case 4 -Show current customers in DB
+    private void showCustomers() {
         List<Customer> allCustomers = dbMapper.getAllCustomers();
-        for (Customer customer: allCustomers ) {
+        for (Customer customer : allCustomers) {
             System.out.println(customer.toString());
         }
+    }
+
+    //case 5
+    private void checkBalance() throws SQLException {
+        dbMapper.getkredit(1);
     }
 
     private void printMainMenu() {
@@ -117,8 +131,9 @@ public class MainController {
         System.out.println("2) Withdraw money from your account.");
         System.out.println("3) Deposit money to your account.");
         System.out.println("4) Show customers.");
-        System.out.println("5) PlaceHolder.");
+        System.out.println("5) Check balance.");
         System.out.println("6) PlaceHolder.");
+        System.out.println("9) Print menu");
         System.out.println("0) Exit.");
     }
 

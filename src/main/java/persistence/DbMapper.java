@@ -2,6 +2,7 @@ package persistence;
 
 import domain.Customer;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,10 +32,9 @@ public class DbMapper {
                 int customer_id = rs.getInt("customer_id");
                 String name = rs.getString("name");
                 String city = rs.getString("city");
+                int balance = rs.getInt("balance");
 
-                customerList.add(new Customer(customer_id, name, city));
-
-
+                customerList.add(new Customer(customer_id, name, city, balance));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -44,4 +44,24 @@ public class DbMapper {
         return customerList;
     }
 
+
+    public int getkredit(int id) throws SQLException {
+        String sql = "select balance from customer WHERE customer_id = ?";
+
+        try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int balance = rs.getInt("balance");
+                System.out.println(balance);
+
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+
+        }
+        return id;
+    }
 }
+
