@@ -127,7 +127,7 @@ public class MainController {
 
     //case 6
     private void updateBalance() throws SQLException {
-        dbMapper.updateDeposit(2);
+        dbMapper.updateDeposit(1);
     }
 
     private void printMainMenu() throws InsufficientFundsException, SQLException, InvalidAmountException {
