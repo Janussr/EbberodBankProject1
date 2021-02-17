@@ -66,7 +66,7 @@ public class DbMapper {
     public int updateDeposit(int id) throws SQLException {
 //SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
 
-        String sql = "UPDATE  customer SET balance = ? + 0 WHERE id = '1'";
+        String sql = "UPDATE  account SET balance = ? + 0 WHERE id = '1'";
         try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
            // ps.setInt(1, id);
             ps.setString(1,"500");
