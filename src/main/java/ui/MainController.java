@@ -121,7 +121,7 @@ public class MainController {
         }
     }
 
-    //case 5
+    //case 5 TODO: Id nummeret skal være baseret på scanner input
     private void checkBalance() throws SQLException {
         dbMapper.getkredit(1);
     }

@@ -32,9 +32,8 @@ public class DbMapper {
                 int customer_id = rs.getInt("customer_id");
                 String name = rs.getString("name");
                 String city = rs.getString("city");
-                int balance = rs.getInt("balance");
 
-                customerList.add(new Customer(customer_id, name, city, balance));
+                customerList.add(new Customer(customer_id, name, city));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -46,7 +45,7 @@ public class DbMapper {
 
 
     public int getkredit(int id) throws SQLException {
-        String sql = "select balance from customer WHERE customer_id = ?";
+        String sql = "select balance from account WHERE id = ?";
 
         try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
             ps.setInt(1, id);
