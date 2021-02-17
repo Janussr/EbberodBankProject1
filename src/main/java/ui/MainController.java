@@ -54,6 +54,9 @@ public class MainController {
                 case 5:
                     checkBalance();
                     break;
+                case 6:
+                    updateBalance();
+                    break;
                 case 9:
                     printMainMenu();
                     break;
@@ -126,13 +129,18 @@ public class MainController {
         dbMapper.getkredit(1);
     }
 
+    //case 6
+    private void updateBalance() throws SQLException {
+        dbMapper.updateDeposit(2);
+    }
+
     private void printMainMenu() {
         System.out.println("1) View your balance.");
         System.out.println("2) Withdraw money from your account.");
         System.out.println("3) Deposit money to your account.");
         System.out.println("4) Show customers.");
         System.out.println("5) Check balance.");
-        System.out.println("6) PlaceHolder.");
+        System.out.println("6) update.");
         System.out.println("9) Print menu");
         System.out.println("0) Exit.");
     }

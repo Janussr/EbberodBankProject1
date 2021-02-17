@@ -29,7 +29,7 @@ public class DbMapper {
         try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int customer_id = rs.getInt("customer_id");
+                int customer_id = rs.getInt("id");
                 String name = rs.getString("name");
                 String city = rs.getString("city");
 
@@ -61,6 +61,23 @@ public class DbMapper {
 
         }
         return id;
+    }
+
+    public int updateDeposit(int id) throws SQLException {
+        String sql = "update users set num_points = 6000 where id = 2";
+        String query = "update balance set account WHERE id = ?,?";
+        try (PreparedStatement ps = database.connect().prepareStatement(query)) {
+            ps.setInt(1, 1);
+            ps.executeUpdate();
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+
+        }
+        return id;
+
     }
 }
 
