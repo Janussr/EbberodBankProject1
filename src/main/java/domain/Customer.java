@@ -1,14 +1,18 @@
+package domain;
+
 import java.util.Objects;
 
 public class Customer {
     private int customer_id;
     private String name;
     private String city;
+    private int balance;
 
-    public Customer(int customer_id, String name, String city) {
+    public Customer(int customer_id, String name, String city, int balance) {
         this.customer_id = customer_id;
         this.name = name;
         this.city = city;
+        this.balance = balance;
     }
 
     public String getName() { return name; }
@@ -25,5 +29,15 @@ public class Customer {
     @Override
     public int hashCode() {
         return Objects.hash(getName());
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customer_id=" + customer_id +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", balance=" + balance +
+                '}';
     }
 }
