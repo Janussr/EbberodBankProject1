@@ -7,13 +7,9 @@ import exceptions.InvalidAmountException;
 import persistence.Database;
 import persistence.DbMapper;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Date;
 
 
 public class MainController {
@@ -49,17 +45,25 @@ public class MainController {
                     //depositAmount();
                     break;
                 case 4:
+                    //Shows a list of the current database.
                     showCustomers();
                     break;
                 case 5:
+                    //Sets the balance of the account.
+                    setBalance();
                     break;
                 case 6:
-                    updateBalance();
+                    break;
+                case 7:
+                    //Can withdraw or deposit in on method. Type true or false after the id and amount to be changed.
+                    changeBalance();
                     break;
                 case 9:
+                    //:Todo keep the program running after it prints the menu. (Currently i closes)
                     printMainMenu();
                     break;
                 case 0:
+                    //self explanatory
                     exit();
                     break;
                 default:
@@ -68,9 +72,7 @@ public class MainController {
         }
     }
 
-    //Functions to the related switch-case number will be added below here.
-
-    //case 9
+    //case 0
     public void exit() {
         System.out.println("Exiting program...");
         System.exit(0);
@@ -84,36 +86,6 @@ public class MainController {
         dbMapper.getkredit(IDnum);
     }
 
-    //case 2
-    //TODO: der må ikke kunne overtrækkes.
-   // public int withDrawAmount() throws InsufficientFundsException {
-   //     int amount = 0;
-   //     System.out.println("Enter your desired withdrawal: ");
-   //     amount = sc.nextInt();
-   //     if (amount <= getBalance()) {
-   //         transactions.add(new Transaction(-amount, new Date()));
-   //         System.out.println(String.format("Ny balance: %d", getBalance()));
-   //     } else {
-   //         throw new InsufficientFundsException();
-   //     }
-   //     return getBalance();
-   // }
-
-    //case 3
-    //TODO: der må ikke kunne overtrækkes.
-  //  public int depositAmount() throws InvalidAmountException {
-  //      int amount = 0;
-  //      System.out.println("Enter your desired deposit: ");
-  //      amount = sc.nextInt();
-  //      if (amount > 0) {
-  //          transactions.add(new Transaction(amount, new Date()));
-  //          System.out.println(String.format("Ny balance: %d", getBalance()));
-  //      } else {
-  //          throw new InvalidAmountException();
-  //      }
-  //      return getBalance();
-  //  }
-
     //case 4 -Show current customers in DB
     private void showCustomers() {
         List<Customer> allCustomers = dbMapper.getAllCustomers();
@@ -123,11 +95,20 @@ public class MainController {
     }
 
 
+    //case 7
+    private void setBalance() throws SQLException {
+        System.out.println("Type id number and amount of the account you want to set the balance of");
+        dbMapper.updateDeposit(1, 100);
+    }
 
-
-    //case 6
-    private void updateBalance() throws SQLException {
-        dbMapper.updateDeposit(1);
+    //Change balance either deposit or withdraw. first type in ur ID, then the amount to deposit or draw, then type true or false.
+    private void changeBalance() {
+        System.out.println("Enter your unique ID to view your balance: ");
+        int IDnum = 0;
+        IDnum = sc.nextInt();
+        int depositNum = sc.nextInt();
+        boolean t = sc.nextBoolean();
+        dbMapper.changeBalance(IDnum, depositNum, t);
     }
 
     private void printMainMenu() throws InsufficientFundsException, SQLException, InvalidAmountException {
@@ -135,8 +116,9 @@ public class MainController {
         System.out.println("2) Withdraw money from your account.");
         System.out.println("3) Deposit money to your account.");
         System.out.println("4) Show customers.");
-        System.out.println("5) Check balance.");
-        System.out.println("6) update.");
+        System.out.println("5) Set balance in ur account.");
+        System.out.println("6) placeholder.");
+        System.out.println("7) Change balance.");
         System.out.println("9) Print menu");
         System.out.println("0) Exit.");
     }
