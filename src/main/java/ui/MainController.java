@@ -40,19 +40,18 @@ public class MainController {
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    getBalance();
+                    checkBalance();
                     break;
                 case 2:
-                    withDrawAmount();
+                    //withDrawAmount();
                     break;
                 case 3:
-                    depositAmount();
+                    //depositAmount();
                     break;
                 case 4:
                     showCustomers();
                     break;
                 case 5:
-                    checkBalance();
                     break;
                 case 6:
                     updateBalance();
@@ -77,44 +76,43 @@ public class MainController {
         System.exit(0);
     }
 
-    //case 1
-    public int getBalance() {
-        int sum = 0;
-        for (Transaction transaction : transactions) {
-            sum += transaction.getAmount();
-        }
-        return sum;
+    //case 1 TODO: Id nummeret skal være baseret på scanner input
+    private void checkBalance() throws SQLException {
+        System.out.println("Enter your unique ID to view your balance: ");
+        int IDnum = 0;
+        IDnum = sc.nextInt();
+        dbMapper.getkredit(IDnum);
     }
 
     //case 2
     //TODO: der må ikke kunne overtrækkes.
-    public int withDrawAmount() throws InsufficientFundsException {
-        int amount = 0;
-        System.out.println("Enter your desired withdrawal: ");
-        amount = sc.nextInt();
-        if (amount <= getBalance()) {
-            transactions.add(new Transaction(-amount, new Date()));
-            System.out.println(String.format("Ny balance: %d", getBalance()));
-        } else {
-            throw new InsufficientFundsException();
-        }
-        return getBalance();
-    }
+   // public int withDrawAmount() throws InsufficientFundsException {
+   //     int amount = 0;
+   //     System.out.println("Enter your desired withdrawal: ");
+   //     amount = sc.nextInt();
+   //     if (amount <= getBalance()) {
+   //         transactions.add(new Transaction(-amount, new Date()));
+   //         System.out.println(String.format("Ny balance: %d", getBalance()));
+   //     } else {
+   //         throw new InsufficientFundsException();
+   //     }
+   //     return getBalance();
+   // }
 
     //case 3
     //TODO: der må ikke kunne overtrækkes.
-    public int depositAmount() throws InvalidAmountException {
-        int amount = 0;
-        System.out.println("Enter your desired deposit: ");
-        amount = sc.nextInt();
-        if (amount > 0) {
-            transactions.add(new Transaction(amount, new Date()));
-            System.out.println(String.format("Ny balance: %d", getBalance()));
-        } else {
-            throw new InvalidAmountException();
-        }
-        return getBalance();
-    }
+  //  public int depositAmount() throws InvalidAmountException {
+  //      int amount = 0;
+  //      System.out.println("Enter your desired deposit: ");
+  //      amount = sc.nextInt();
+  //      if (amount > 0) {
+  //          transactions.add(new Transaction(amount, new Date()));
+  //          System.out.println(String.format("Ny balance: %d", getBalance()));
+  //      } else {
+  //          throw new InvalidAmountException();
+  //      }
+  //      return getBalance();
+  //  }
 
     //case 4 -Show current customers in DB
     private void showCustomers() {
@@ -124,17 +122,15 @@ public class MainController {
         }
     }
 
-    //case 5 TODO: Id nummeret skal være baseret på scanner input
-    private void checkBalance() throws SQLException {
-        dbMapper.getkredit(1);
-    }
+
+
 
     //case 6
     private void updateBalance() throws SQLException {
-        dbMapper.updateDeposit(2);
+        dbMapper.updateDeposit(1);
     }
 
-    private void printMainMenu() {
+    private void printMainMenu() throws InsufficientFundsException, SQLException, InvalidAmountException {
         System.out.println("1) View your balance.");
         System.out.println("2) Withdraw money from your account.");
         System.out.println("3) Deposit money to your account.");
