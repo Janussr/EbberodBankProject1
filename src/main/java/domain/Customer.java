@@ -1,3 +1,5 @@
+package domain;
+
 import java.util.Objects;
 
 public class Customer {
@@ -25,5 +27,14 @@ public class Customer {
     @Override
     public int hashCode() {
         return Objects.hash(getName());
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "customer_id=" + customer_id +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                '}';
     }
 }
