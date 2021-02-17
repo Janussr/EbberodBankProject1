@@ -65,7 +65,7 @@ public class DbMapper {
 
     public int updateDeposit(int id) throws SQLException {
         String sql = "update users set num_points = 6000 where id = 2";
-        String query = "update balance set account WHERE id = ?,?";
+        String query = "update balance set account WHERE id = ?";
         try (PreparedStatement ps = database.connect().prepareStatement(query)) {
             ps.setInt(1, 1);
             ps.executeUpdate();
