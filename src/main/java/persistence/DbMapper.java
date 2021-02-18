@@ -58,7 +58,6 @@ public class DbMapper {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
 
-
         }
         return id;
     }
@@ -80,9 +79,9 @@ public class DbMapper {
 
     }
 
-    public int withdrawBalance(int _id, int deposit) {
+    public int withdrawBalance(int _id, int withdraw) {
         String sql;
-        sql = "UPDATE account SET balance = balance - " + deposit + " WHERE id =  " + _id;
+        sql = "UPDATE account SET balance = balance - " + withdraw + " WHERE id =  " + _id;
         try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
             //  ps.setString(1, String.valueOf(deposit));
             ps.executeUpdate();

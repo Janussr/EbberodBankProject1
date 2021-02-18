@@ -94,7 +94,7 @@ public class MainController {
         System.out.println("enter the amount you want to withdraw: ");
         int withdrawNum = sc.nextInt();
         dbMapper.withdrawBalance(IDnum, withdrawNum);
-    }
+        }
 
     //case 3
     private void depositBalance() throws SQLException {
