@@ -15,7 +15,7 @@ public class ProjectMethods {
 
     //user & pass, from your local db
     private final String USER = "root";
-    private final String PASS = "root1234";
+    private final String PASS = "root";
     private final String URL = "jdbc:mysql://localhost:3306/ebberod_bank?serverTimezone=CET&useSSL=false";
 
 
