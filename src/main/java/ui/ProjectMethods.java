@@ -1,0 +1,88 @@
+package ui;
+
+import domain.Customer;
+import persistence.Database;
+import persistence.DbMapper;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Scanner;
+
+/**
+ * CREATED BY Janus @ 2021-02-18 - 09:57
+ **/
+public class ProjectMethods {
+
+    //user & pass, from your local db
+    private final String USER = "root";
+    private final String PASS = "root";
+    private final String URL = "jdbc:mysql://localhost:3306/ebberod_bank?serverTimezone=CET&useSSL=false";
+
+
+    private Database database = new Database(USER, PASS, URL);
+    private DbMapper dbMapper = new DbMapper(database);
+
+    Scanner sc = new Scanner(System.in);
+
+    //case 0
+    public void exit() {
+        System.out.println("Exiting program...");
+        System.exit(0);
+    }
+
+    //case 1
+    public void checkBalance() throws SQLException {
+        System.out.println("Enter your unique ID to view your balance: ");
+        int IDnum = 0;
+        IDnum = sc.nextInt();
+        dbMapper.getkredit(IDnum);
+
+    }
+
+    //case 4 -Show current customers in DB
+    public void showCustomers() {
+        List<Customer> allCustomers = dbMapper.getAllCustomers();
+        for (Customer customer : allCustomers) {
+            System.out.println(customer.toString());
+        }
+    }
+
+
+    //case 7
+    public void setBalance() throws SQLException {
+        System.out.println("Type id number and the amount you want to set your balance to");
+        dbMapper.updateDeposit(1, 100);
+    }
+
+    //Change balance either deposit or withdraw. first type in ur ID, then the amount to deposit or draw, then type true or false.
+    public void changeBalance() {
+        System.out.println("Enter your unique ID to view your balance: ");
+        int IDnum = 0;
+        IDnum = sc.nextInt();
+        System.out.println("Type the amount you want to withdraw or deposit: ");
+        int depositNum = sc.nextInt();
+        System.out.println("Type [true] to deposit and [false] to withdraw:");
+        boolean t = sc.nextBoolean();
+        dbMapper.changeBalance(IDnum, depositNum, t);
+    }
+
+    public String getUSER() {
+        return USER;
+    }
+
+    public String getPASS() {
+        return PASS;
+    }
+
+    public String getURL() {
+        return URL;
+    }
+
+    public Database getDatabase() {
+        return database;
+    }
+
+    public DbMapper getDbMapper() {
+        return dbMapper;
+    }
+}
