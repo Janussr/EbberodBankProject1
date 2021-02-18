@@ -36,7 +36,7 @@ public class ProjectMethods {
         int IDnum = 0;
         IDnum = sc.nextInt();
         dbMapper.getkredit(IDnum);
-
+        System.out.println("\n");
     }
 
     //case 2
@@ -47,6 +47,8 @@ public class ProjectMethods {
         System.out.println("enter the amount you want to withdraw: ");
         int withdrawNum = sc.nextInt();
         dbMapper.withdrawBalance(IDnum, withdrawNum);
+        System.out.println("you succesfully withdrew: " + withdrawNum + "kr \n");
+
     }
 
     //case 3
@@ -57,6 +59,7 @@ public class ProjectMethods {
         System.out.println("enter the amount you want to deposit: ");
         int depositNum = sc.nextInt();
         dbMapper.depositBalance(IDnum, depositNum);
+        System.out.println("you succesfully deposited: " + depositNum + "kr \n");
     }
 
     //case 4 -Show current customers in DB
@@ -67,10 +70,9 @@ public class ProjectMethods {
         }
     }
 
-
     //case 7
     public void setBalance() throws SQLException {
-        System.out.println("Type id number and the amount you want to set your balance to");
+        System.out.println("Your balance has been reset to 100kr\n");
         dbMapper.updateDeposit(1, 100);
     }
 
@@ -84,25 +86,5 @@ public class ProjectMethods {
         System.out.println("Type [true] to deposit and [false] to withdraw:");
         boolean t = sc.nextBoolean();
         dbMapper.changeBalance(IDnum, depositNum, t);
-    }
-
-    public String getUSER() {
-        return USER;
-    }
-
-    public String getPASS() {
-        return PASS;
-    }
-
-    public String getURL() {
-        return URL;
-    }
-
-    public Database getDatabase() {
-        return database;
-    }
-
-    public DbMapper getDbMapper() {
-        return dbMapper;
     }
 }

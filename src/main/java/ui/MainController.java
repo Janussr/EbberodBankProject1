@@ -23,26 +23,30 @@ public class MainController {
             switch (choice) {
                 case 1:
                     accmethod.checkBalance();
+                    printMainMenu();
                     break;
                 case 2:
                     accmethod.withdrawBalance();
+                    printMainMenu();
                     break;
                 case 3:
                     accmethod.depositBalance();
+                    printMainMenu();
                     break;
                 case 4:
                     //Shows a list of the current database.
                     accmethod.showCustomers();
+                    printMainMenu();
                     break;
                 case 5:
                     //Sets the balance of the account.
                     accmethod.setBalance();
+                    printMainMenu();
                     break;
                 case 6:
-                    break;
-                case 7:
                     //Can withdraw or deposit in on method. Type true or false after the id and amount to be changed.
                     accmethod.changeBalance();
+                    printMainMenu();
                     break;
                 case 9:
                     //:Todo keep the program running after it prints the menu. (Currently it closes)
@@ -61,9 +65,8 @@ public class MainController {
         System.out.println("2) Withdraw money from your account.");
         System.out.println("3) Deposit money to your account.");
         System.out.println("4) Show customers.");
-        System.out.println("5) Set balance in your account.");
-        System.out.println("6) placeholder.");
-        System.out.println("7) Change balance.");
+        System.out.println("5) Reset database balance.");
+        System.out.println("6) Change balance.");
         System.out.println("9) Print menu");
         System.out.println("0) Exit.");
     }
