@@ -15,7 +15,7 @@ import java.util.Scanner;
 public class MainController {
     //user & pass, from your local db
     private final String USER = "root";
-    private final String PASS = "root1234";
+    private final String PASS = "root";
     private final String URL = "jdbc:mysql://localhost:3306/ebberod_bank?serverTimezone=CET&useSSL=false";
 
 
@@ -106,7 +106,9 @@ public class MainController {
         System.out.println("Enter your unique ID to view your balance: ");
         int IDnum = 0;
         IDnum = sc.nextInt();
+        System.out.println("Type the amount you want to withdraw or deposit: ");
         int depositNum = sc.nextInt();
+        System.out.println("Type [true] to deposit and [false] to withdraw:");
         boolean t = sc.nextBoolean();
         dbMapper.changeBalance(IDnum, depositNum, t);
     }
