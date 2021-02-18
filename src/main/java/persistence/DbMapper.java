@@ -63,22 +63,66 @@ public class DbMapper {
         return id;
     }
 
-    public int updateDeposit(int id) throws SQLException {
-//SET ContactName = 'Alfred Schmidt', City= 'Frankfurt' WHERE CustomerID = 1;
-
-        String sql = "UPDATE  account SET balance = ? + 0 WHERE id = '1'";
+    public int updateDeposit(int _id, int deposit) throws SQLException {
+        String sql = "UPDATE  account SET balance = ? + 0 WHERE id =  " + _id;
         try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
-           // ps.setInt(1, id);
-            ps.setString(1,"500");
+            ps.setString(1, String.valueOf(deposit));
             ps.executeUpdate();
 
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
 
+            //String sql = "UPDATE  account SET balance = ? + 0 WHERE id = '1'";
 
         }
-        return id;
+        return _id;
+
+    }
+
+    public int withdrawBalance(int _id, int deposit) {
+        String sql;
+        sql = "UPDATE account SET balance = balance - " + deposit + " WHERE id =  " + _id;
+        try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
+            //  ps.setString(1, String.valueOf(deposit));
+            ps.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        }
+        return _id;
+    }
+
+    public int depositBalance(int _id, int deposit) {
+        String sql = "UPDATE  account SET balance = balance + " + deposit + " WHERE id =  " + _id;
+        try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
+            //  ps.setString(1, String.valueOf(deposit));
+            ps.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        }
+        return _id;
+    }
+
+    public int changeBalance(int _id, int deposit, boolean _t) {
+        String sql;
+        if (_t) {
+            sql = "UPDATE  account SET balance = balance + " + deposit + " WHERE id =  " + _id;
+        } else {
+            sql = "UPDATE  account SET balance = balance - " + deposit + " WHERE id =  " + _id;
+        }
+        try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
+            //  ps.setString(1, String.valueOf(deposit));
+            ps.executeUpdate();
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+
+        }
+        return _id;
 
     }
 }
