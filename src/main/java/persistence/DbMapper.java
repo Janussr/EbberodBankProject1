@@ -2,17 +2,14 @@ package persistence;
 
 import domain.Customer;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * CREATED BY Janus @ 2021-02-16 - 16:21
  **/
-public class DbMapper {
+public class DbMapper implements DbMapperI {
 
     public DbMapper(Database database) {
         this.database = database;
@@ -20,6 +17,7 @@ public class DbMapper {
 
     private Database database;
 
+    @Override
     public List<Customer> getAllCustomers() {
 
         List<Customer> customerList = new ArrayList<>();
@@ -44,6 +42,7 @@ public class DbMapper {
     }
 
 
+    @Override
     public int getkredit(int id) throws SQLException {
         String sql = "select balance from account WHERE id = ?";
 
@@ -62,6 +61,7 @@ public class DbMapper {
         return id;
     }
 
+    @Override
     public int updateDeposit(int _id, int deposit) throws SQLException {
         String sql = "UPDATE  account SET balance = ? + 0 WHERE id =  " + _id;
         try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
@@ -79,6 +79,7 @@ public class DbMapper {
 
     }
 
+    @Override
     public int withdrawBalance(int _id, int withdraw) {
         String sql;
         sql = "UPDATE account SET balance = balance - " + withdraw + " WHERE id =  " + _id;
@@ -93,6 +94,7 @@ public class DbMapper {
         return _id;
     }
 
+    @Override
     public int depositBalance(int _id, int deposit) {
         String sql = "UPDATE  account SET balance = balance + " + deposit + " WHERE id =  " + _id;
         try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
@@ -106,6 +108,7 @@ public class DbMapper {
         return _id;
     }
 
+    @Override
     public int changeBalance(int _id, int deposit, boolean _t) {
         String sql;
         if (_t) {
@@ -123,6 +126,26 @@ public class DbMapper {
         }
         return _id;
 
+    }
+
+    public void createUser(Customer customer) throws SQLException {
+        try {
+            //Connection connect = database.connect();
+            String SQL = "INSERT INTO customer (id, name, city) VALUES (?,?,?)";
+            PreparedStatement ps = database.connect().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, customer.getCustomer_id());
+            ps.setString(2, customer.getName());
+            ps.setString(3, customer.getCity());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            rs.next();
+            int id = rs.getInt(1);
+            customer.setCustomer_id(id);
+            database.closeConnection();
+
+        } catch (SQLException e) {
+            System.out.println("Lmao fail in creating new user");
+        }
     }
 }
 

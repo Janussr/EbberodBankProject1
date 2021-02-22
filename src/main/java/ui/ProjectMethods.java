@@ -3,6 +3,7 @@ package ui;
 import domain.Customer;
 import persistence.Database;
 import persistence.DbMapper;
+import persistence.DbMapperI;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -18,11 +19,21 @@ public class ProjectMethods {
     private final String PASS = "root";
     private final String URL = "jdbc:mysql://localhost:3306/ebberod_bank?serverTimezone=CET&useSSL=false";
 
-
     private Database database = new Database(USER, PASS, URL);
     private DbMapper dbMapper = new DbMapper(database);
 
+    // private DbMapperI dbMapper;
+
+    //public ProjectMethods( DbMapperI dbMapper) {
+
+    //this.dbMapper = dbMapper;
+    // }
+
     Scanner sc = new Scanner(System.in);
+
+    public ProjectMethods() {
+
+    }
 
     //case 0
     public void exit() {
@@ -70,12 +81,20 @@ public class ProjectMethods {
         }
     }
 
-    //case 7
+    //case 5
     public void setBalance() throws SQLException {
         System.out.println("Your balance has been reset to 100kr\n");
         dbMapper.updateDeposit(1, 100);
     }
 
+    //case 6 -Create user
+    public void createCustomer(String _name, String _city) throws SQLException {
+        System.out.println("Creating customer");
+        Customer custom = new Customer(5,_name, _city);
+        dbMapper.createUser(custom);
+    }
+
+    //case 8
     //Change balance either deposit or withdraw. first type in ur ID, then the amount to deposit or draw, then type true or false.
     public void changeBalance() {
         System.out.println("Enter your unique ID to view your balance: ");

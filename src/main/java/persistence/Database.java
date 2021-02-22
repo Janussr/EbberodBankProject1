@@ -9,10 +9,14 @@ import java.sql.SQLException;
  **/
 public class Database {
 
+    //user & pass, from your local db
+
     private Connection connection;
-    private final String USER;
-    private final String PASS;
-    private final String URL;
+
+
+    private String USER = "root";
+    private String PASS = "root";
+    private String URL = "jdbc:mysql://localhost:3306/ebberod_bank?serverTimezone=CET&useSSL=false";
 
     public Database(String user, String pass, String url) {
         this.connection = connection;
@@ -28,7 +32,6 @@ public class Database {
         }
 
 
-
     }
     public Connection connect(){
         Connection connection = null;
@@ -40,5 +43,7 @@ public class Database {
         }
         return connection;
     }
-
+    public void closeConnection() throws SQLException{
+        DriverManager.getConnection(URL, USER, PASS).close();
+    }
 }

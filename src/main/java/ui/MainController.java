@@ -2,14 +2,22 @@ package ui;
 
 import exceptions.InsufficientFundsException;
 import exceptions.InvalidAmountException;
+import persistence.Database;
+import persistence.DbMapper;
+import persistence.DbMapperI;
 
 import java.sql.SQLException;
 import java.util.Scanner;
 
 
 public class MainController {
-    private ProjectMethods accmethod = new ProjectMethods();
 
+
+   // private Database database = new Database("USER","PASS","URL");
+   // private DbMapperI dbmapi = new DbMapper(database);
+   // private ProjectMethods accmethod = new ProjectMethods(dbmapi);
+
+    ProjectMethods accmethod = new ProjectMethods();
 
     Scanner sc = new Scanner(System.in);
 
@@ -44,6 +52,11 @@ public class MainController {
                     printMainMenu();
                     break;
                 case 6:
+                    //Create user
+                    accmethod.createCustomer("kian","kbh");
+                    printMainMenu();
+                    break;
+                case 8:
                     //Can withdraw or deposit in on method. Type true or false after the id and amount to be changed.
                     accmethod.changeBalance();
                     printMainMenu();
@@ -66,7 +79,8 @@ public class MainController {
         System.out.println("3) Deposit money to your account.");
         System.out.println("4) Show customers.");
         System.out.println("5) Reset database balance.");
-        System.out.println("6) Change balance.");
+        System.out.println("6) Create user.");
+        System.out.println("8) Change balance.");
         System.out.println("9) Print menu");
         System.out.println("0) Exit.");
     }
