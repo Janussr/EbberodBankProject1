@@ -27,11 +27,11 @@ public class DbMapper implements DbMapperI {
         try (PreparedStatement ps = database.connect().prepareStatement(sql)) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                int customer_id = rs.getInt("id");
+                int id = rs.getInt("id");
                 String name = rs.getString("name");
                 String city = rs.getString("city");
 
-                customerList.add(new Customer(customer_id, name, city));
+                customerList.add(new Customer(id, name, city));
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -131,11 +131,10 @@ public class DbMapper implements DbMapperI {
     public void createUser(Customer customer) throws SQLException {
         try {
             //Connection connect = database.connect();
-            String SQL = "INSERT INTO customer (id, name, city) VALUES (?,?,?)";
+            String SQL = "INSERT INTO customer (name, city) VALUES (?,?)";
             PreparedStatement ps = database.connect().prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, customer.getCustomer_id());
-            ps.setString(2, customer.getName());
-            ps.setString(3, customer.getCity());
+            ps.setString(1, customer.getName());
+            ps.setString(2, customer.getCity());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             rs.next();

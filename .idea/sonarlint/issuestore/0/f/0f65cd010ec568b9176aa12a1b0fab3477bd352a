@@ -1,0 +1,4 @@
+
+u	java:S116"YRename this field "transaction_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¯÷³8“ÿ’Ğü.
+
+java:S4165"lRemove this useless assignment; "transaction_id" already holds the assigned value along all execution paths.(ÆÂÓùÿÿÿÿ8“ÿ’Ğü.

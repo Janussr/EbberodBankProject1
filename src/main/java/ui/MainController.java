@@ -13,9 +13,9 @@ import java.util.Scanner;
 public class MainController {
 
 
-   // private Database database = new Database("USER","PASS","URL");
-   // private DbMapperI dbmapi = new DbMapper(database);
-   // private ProjectMethods accmethod = new ProjectMethods(dbmapi);
+  // private Database database = new Database("USER","PASS","URL");
+  // private DbMapperI dbmapi = new DbMapper(database);
+  // private ProjectMethods accmethod = new ProjectMethods();
 
     ProjectMethods accmethod = new ProjectMethods();
 
@@ -30,35 +30,35 @@ public class MainController {
             choice = sc.nextInt();
             switch (choice) {
                 case 1:
-                    accmethod.checkBalance();
+                    BankAccount.checkBalance();
                     printMainMenu();
                     break;
                 case 2:
-                    accmethod.withdrawBalance();
+                    BankAccount.withdrawBalance();
                     printMainMenu();
                     break;
                 case 3:
-                    accmethod.depositBalance();
+                    BankAccount.depositBalance();
                     printMainMenu();
                     break;
                 case 4:
                     //Shows a list of the current database.
-                    accmethod.showCustomers();
+                    Customers.showCustomers();
                     printMainMenu();
                     break;
                 case 5:
                     //Sets the balance of the account.
-                    accmethod.setBalance();
+                    BankAccount.setBalance();
                     printMainMenu();
                     break;
                 case 6:
                     //Create user
-                    accmethod.createCustomer("kian","kbh");
+                    Customers.createCustomer("kian","kbh");
                     printMainMenu();
                     break;
                 case 8:
                     //Can withdraw or deposit in on method. Type true or false after the id and amount to be changed.
-                    accmethod.changeBalance();
+                    BankAccount.changeBalance();
                     printMainMenu();
                     break;
                 case 9:

@@ -10,11 +10,6 @@ import java.util.List;
  **/
 public interface DbMapperI {
 
-
-
-
-
-
     List<Customer> getAllCustomers();
 
     int getkredit(int id) throws SQLException;

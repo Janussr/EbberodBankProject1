@@ -1,0 +1,10 @@
+
+Š
+java:S4165"hRemove this useless assignment; "connection" already holds the assigned value along all execution paths.(½Ãíòúÿÿÿÿ8ó·ÉÙü.
+p	java:S116"ORename this field "USER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó‡Ó×ùÿÿÿÿ8ó·ÉÙü.
+j	java:S116"ORename this field "PASS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ĞÌ|8ó·ÉÙü.
+j	java:S116"NRename this field "URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ª¿ÜÄ8ó·ÉÙü.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(°©¬Üşÿÿÿÿ8ó·ÉÙü.
+[
+java:S1117%">Rename "connection" which hides the field declared at line 14.(ïÆ¥8ó·ÉÙü.
+U	java:S106*"9Replace this use of System.out or System.err by a logger.(•»…µ8ó·ÉÙü.

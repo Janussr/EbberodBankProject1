@@ -1,0 +1,40 @@
+
+m	java:S117/"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸İ²Î8ï¹ÉÙü.
+m	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸İ²Î8ï¹ÉÙü.
+m	java:S117D"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸İ²Î8ï¹ÉÙü.
+r	java:S117["QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€Á˜Ëùÿÿÿÿ8ï¹ÉÙü.
+r	java:S117["QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€Á˜Ëùÿÿÿÿ8ï¹ÉÙü.
+m	java:S117e"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸İ²Î8ï¹ÉÙü.
+£
+java:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ú¡¡Éüÿÿÿÿ8ï¹ÉÙü.
+p	java:S116"ORename this field "USER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(õ­èëüÿÿÿÿ8ï¹ÉÙü.
+p	java:S116"ORename this field "PASS" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üçà‡úÿÿÿÿ8ï¹ÉÙü.
+o	java:S116"NRename this field "URL" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø¦‹éùÿÿÿÿ8ï¹ÉÙü.
+C
+java:S1170"!Make this final field static too.(õ­èëüÿÿÿÿ8ï¹ÉÙü.
+C
+java:S1170"!Make this final field static too.(üçà‡úÿÿÿÿ8ï¹ÉÙü.
+C
+java:S1170"!Make this final field static too.(ø¦‹éùÿÿÿÿ8ï¹ÉÙü.
+]	java:S125"<This block of commented-out lines of code should be removed.(ÿíÿÛÿÿÿÿÿ8ï¹ÉÙü.
+]	java:S125"<This block of commented-out lines of code should be removed.(áÆ²±ıÿÿÿÿ8ï¹ÉÙü.
+X	java:S125"<This block of commented-out lines of code should be removed.(ÕéàØ8ï¹ÉÙü.
+Z	java:S106("9Replace this use of System.out or System.err by a logger.(º‡©¹øÿÿÿÿ8ï¹ÉÙü.
+Z	java:S106."9Replace this use of System.out or System.err by a logger.(óŠ£Éüÿÿÿÿ8ï¹ÉÙü.
+Z	java:S1062"9Replace this use of System.out or System.err by a logger.(ƒÇãˆúÿÿÿÿ8ï¹ÉÙü.
+
+java:S11306"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(š‡”ìüÿÿÿÿ8ï¹ÉÙü.
+Z	java:S1067"9Replace this use of System.out or System.err by a logger.(³­Øšşÿÿÿÿ8ï¹ÉÙü.
+U	java:S106:"9Replace this use of System.out or System.err by a logger.(ÒÅÂö8ï¹ÉÙü.
+T	java:S106="9Replace this use of System.out or System.err by a logger.(À…Ì>8ï¹ÉÙü.
+
+java:S1130B"nRemove the declaration of thrown exception 'java.sql.SQLException', as it cannot be thrown from method's body.(º•Îÿùÿÿÿÿ8ï¹ÉÙü.
+Z	java:S106C"9Replace this use of System.out or System.err by a logger.(³­Øšşÿÿÿÿ8ï¹ÉÙü.
+U	java:S106F"9Replace this use of System.out or System.err by a logger.(§ƒè´8ï¹ÉÙü.
+Z	java:S106I"9Replace this use of System.out or System.err by a logger.(¾èõ²ıÿÿÿÿ8ï¹ÉÙü.
+U	java:S106P"9Replace this use of System.out or System.err by a logger.(€¼Ò‰8ï¹ÉÙü.
+U	java:S106V"9Replace this use of System.out or System.err by a logger.(Š¤ÿ8ï¹ÉÙü.
+Z	java:S106\"9Replace this use of System.out or System.err by a logger.(½ñ×¤şÿÿÿÿ8ï¹ÉÙü.
+Z	java:S106d"9Replace this use of System.out or System.err by a logger.(óŠ£Éüÿÿÿÿ8ï¹ÉÙü.
+Z	java:S106g"9Replace this use of System.out or System.err by a logger.(ŞÂÒ®ûÿÿÿÿ8ï¹ÉÙü.
+U	java:S106i"9Replace this use of System.out or System.err by a logger.(í¬Ùò8ï¹ÉÙü.

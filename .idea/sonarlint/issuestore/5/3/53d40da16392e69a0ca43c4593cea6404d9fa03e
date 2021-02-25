@@ -1,0 +1,5 @@
+
+m	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ïü›8»‚“Ğü.
+v	java:S116"URename this field "account_id" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯á‰âûÿÿÿÿ8»‚“Ğü.
+P
+java:S1068".Remove this unused "account_id" private field.(¯á‰âûÿÿÿÿ8»‚“Ğü.

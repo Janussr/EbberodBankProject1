@@ -7,13 +7,20 @@ public class Customer {
     private String name;
     private String city;
 
-    public Customer(int customer_id, String name, String city) {
-        this.customer_id = customer_id;
+    public Customer(String name, String city) {
         this.name = name;
         this.city = city;
     }
 
-    public String getName() { return name; }
+    public Customer(int id, String name, String city) {
+        this.customer_id = id;
+        this.name = name;
+        this.city = city;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     //Måske den også skal return Custommer_ID og custommerCity, i så fald skal der lige laves nogen gettere også.
     @Override

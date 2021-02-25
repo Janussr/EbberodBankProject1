@@ -1,0 +1,19 @@
+
+m
+java:S2095‡"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ô¢Å8ÒºÉÙü.
+p
+java:S1192U"NDefine a constant instead of duplicating this literal " WHERE id =  " 4 times.(ù©Ò¯şÿÿÿÿ8ÒºÉÙü.
+r	java:S117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´üÚìüÿÿÿÿ8ÒºÉÙü.
+r	java:S117A"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÕÎÿÿÿÿÿ8ÒºÉÙü.
+m	java:S117S"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·É¬Ş8ÒºÉÙü.
+r	java:S117b"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­øÙ³ùÿÿÿÿ8ÒºÉÙü.
+m	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÕ¶®8ÒºÉÙü.
+m	java:S117p"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØÕ¶®8ÒºÉÙü.
+s	java:S117†"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²æğüÿÿÿÿ8ÒºÉÙü.
+U	java:S1066"9Replace this use of System.out or System.err by a logger.(§À“8ÒºÉÙü.
+X	java:S125K"<This block of commented-out lines of code should be removed.(ÕºÀ8ÒºÉÙü.
+]	java:S125W"<This block of commented-out lines of code should be removed.(ÉŸ”Ïÿÿÿÿÿ8ÒºÉÙü.
+]	java:S125e"<This block of commented-out lines of code should be removed.(ÉŸ”Ïÿÿÿÿÿ8ÒºÉÙü.
+]	java:S125x"<This block of commented-out lines of code should be removed.(ÉŸ”Ïÿÿÿÿÿ8ÒºÉÙü.
+^	java:S125…"<This block of commented-out lines of code should be removed.(ïÖéşÿÿÿÿ8ÒºÉÙü.
+[	java:S106“"9Replace this use of System.out or System.err by a logger.(ö£éüÿÿÿÿ8ÒºÉÙü.
