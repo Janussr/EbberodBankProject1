@@ -53,7 +53,9 @@ public class MainController {
                     break;
                 case 6:
                     //Create user
-                    Customers.createCustomer("kian","kbh");
+                    String name = sc.next();
+                    String city = sc.next();
+                    Customers.createCustomer(name,city);
                     printMainMenu();
                     break;
                 case 8:

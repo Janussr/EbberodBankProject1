@@ -22,19 +22,6 @@ public class Customer {
         return name;
     }
 
-    //Måske den også skal return Custommer_ID og custommerCity, i så fald skal der lige laves nogen gettere også.
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Customer)) return false;
-        Customer customer = (Customer) o;
-        return Objects.equals(getName(), customer.getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName());
-    }
 
     public int getCustomer_id() {
         return customer_id;
